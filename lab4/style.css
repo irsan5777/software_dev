@@ -1,0 +1,56 @@
+.shadow1{text-shadow: 10px 0px 3px red;}
+.shadow2{text-shadow: -10px 0px 2px red;}
+.shadow3{text-shadow: 0px 10px 2px red;}
+.shadow4{text-shadow: 0px -10px 2px red;}
+.shadow5{text-shadow: -10px -5px 4px red;}
+.shadow6{text-shadow: -2px 2px 4px red;}
+
+.shadowbox1, .shadowbox2, .shadowbox3, .shadowbox4, .shadowbox5{
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+    margin: 20px;
+}
+.shadowbox1{
+    box-shadow: 0px 5px 3px red;
+}
+.shadowbox2{
+    box-shadow: 5px 5px 3px red;
+}
+.shadowbox3{
+    box-shadow: 2px 2px 4px red;
+}
+.shadowbox4{box-shadow: 2px 2px 4px inset;}
+.shadowbox5{box-shadow: 0px 0px 5px 10px olive;}
+
+.radiusbox1, .radiusbox2, .radiusbox3, .radiusbox4, .radiusbox5{
+    width: 150px;
+    height: 150px;
+    background-color: chartreuse;
+    margin: 30px;
+    padding: 20px;
+}
+
+.radiusbox1{border-radius: 20px;}
+.radiusbox2{border-radius: 50px / 25px;}
+.radiusbox3{border-radius: 30px 10px 50px 20px;}
+.radiusbox4{border-radius: 10px 50px;}
+.radiusbox5{border-radius: 50%;}
+
+.blossom{
+    width: 200px;
+    margin: 20px;
+}
+
+.blossom1{border-radius: 50px;}
+.blossom2{border-radius: 50%;}
+.blossom3{border-radius: 15px; border: solid hotpink 5px; padding: 20px;}
+.blossom4{box-shadow: 0px 0px 5px 3px grey; border-radius: 10px;}
+
+img{width: 100%;}
+figure img{width: 200px;}
+figcaption{margin-bottom: 50px;}
+.blur1{filter: blur(1px);}
+.blur2{filter: blur(5px);}
+.blur3{filter: blur(10px);}
+
