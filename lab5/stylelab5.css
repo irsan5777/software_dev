@@ -1,0 +1,161 @@
+*{box-sizing: border-box;}
+html{scroll-behavior: smooth;}
+img{
+    width: 100%;
+    display: block;
+}
+.square_circle{
+    width: 100px;
+    height: 100px;
+    background-color: purple;
+    transition: ease-in-out 800ms;
+}
+.square_circle:hover{
+    border-radius: 50%;
+    background-color: aqua;
+}
+/* zoom effect */
+.zoomcontainer, .slidecontainer{
+    width: 500px;
+    position: relative; 
+}
+.zoomcontent, .slidecontainer{
+    position: absolute;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    background-color: rgba(50,50,50,0.7);
+    text-align: center;
+    padding-top: 30%;
+    color: white;
+    font-size: 3em;
+    transform: scale(0);
+    transition: ease-in-out 1s;
+}
+
+.zoomcontainer:hover .zoomcontent{
+    transform: scale(1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* flex container */
+.flexcontainer{
+    background-color: lightsalmon;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    align-content: center;
+
+}
+
+/* grid layout*/
+
+.gridcontainer{
+    display: grid;
+    grid-template-columns: 2fr 1fr 5fr;
+    grid-template-rows: 3fr 1fr 4fr;
+    gap: 10px;
+    background-color: antiquewhite;
+    height: 500px;
+}
+
+.item{
+background-color: aqua;
+text-align: center;
+padding: 20px;
+border: solid black 1px;
+}
+
+.gridsection{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/*more grid properties*/
+
+.sectioncontainer{
+    display: grid;
+    grid-template-areas: 
+    "header header header";
+    "sidebar content content"
+    "footer footer footer";
+}
+
+.header, .sidebar, .content, .footer{
+    padding: 2rem;
+    text-align: center;
+}
+
+.header{
+    background-color: aqua;
+    grid-area: header;
+}
+
+.sidebar{
+    background-color: blueviolet;
+}
+
+.content{
+    background-color: greenyellow;
+    grid-area: content;
+}
+
+.footer{
+    background-color: pink;
+    grid-area: footer;
+}
+
+/* navigation tabs*/
+
+.navcontainer{
+    position: fixed;
+    top: 0%;
+    background-color: rgba(50,50,50,0.7);
+    width: 100%;
+}
+
+.navlink{
+    text-align: center;
+    padding: 1rem;
+    display: inline-block;
+    color: white;
+}
+
+.collapsenavbars{
+    display: none;
+    padding: 1rem;
+    color: aliceblue;
+
+}
+
+/* media query*/
+
+@media only screen and (max-width:1150px) {
+    .flexcontainer{background-color: aqua;}
+    .cardslide{
+        width: 500px;
+    .gridcontainer{
+        grid-template-columns:3fr 2fr;}
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .flexcontainer{background-color: purple;}
+    .cardslide{width: 90%; margin: 5%;}
+    .gridcontainer{grid-template-columns: 1fr;}
+}
+
+
