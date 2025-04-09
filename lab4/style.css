@@ -344,5 +344,15 @@ html{scroll-behavior: smooth;}
     width: 30%;
     height: 500px;
     border: solid gray 1px;
+    position: relative;
+    overflow: hidden;
+}
 
+h1, h2{
+    text-align: center;
+    margin: 10px;
+}
+
+.img1{
+    filter: invert(100%);
 }
