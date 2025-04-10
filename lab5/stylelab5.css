@@ -68,8 +68,8 @@ img{
     box-shadow: 0px 10px 5px black;
 }
 
-
 /* flex container */
+
 .flexcontainer{
     background-color: lightsalmon;
     display: flex;
@@ -77,7 +77,6 @@ img{
     justify-content: center;
     align-items: flex-end;
     align-content: center;
-
 }
 
 /* grid layout*/
@@ -100,7 +99,7 @@ border: solid black 1px;
 
 .gridsection{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 
 /*more grid properties*/
@@ -108,9 +107,9 @@ border: solid black 1px;
 .sectioncontainer{
     display: grid;
     grid-template-areas: 
-    "header header header";
-    "sidebar content content"
-    "footer footer footer";
+    "header header header"
+    "sidebar content sidebar"
+    "footer footer footer"
 }
 
 .header, .sidebar, .content, .footer{
@@ -125,7 +124,8 @@ border: solid black 1px;
 
 .sidebar{
     background-color: blueviolet;
-}
+    grid-area: sidebar;
+} 
 
 .content{
     background-color: greenyellow;
@@ -144,6 +144,8 @@ border: solid black 1px;
     top: 0%;
     background-color: rgba(50,50,50,0.7);
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .navlink{
@@ -157,7 +159,6 @@ border: solid black 1px;
     display: none;
     padding: 1rem;
     color: aliceblue;
-
 }
 
 /* media query*/
@@ -167,7 +168,7 @@ border: solid black 1px;
     .cardslide{
         width: 500px;
     .gridcontainer{
-        grid-template-columns:3fr 2fr;}
+        grid-template-columns: 3fr 2fr;}
     }
 }
 
