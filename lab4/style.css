@@ -330,6 +330,7 @@ html{scroll-behavior: smooth;}
     font-weight: bolder;
 }
 
+
 /* LAB EXERCISE*/
 
 .exercisecontainer{
@@ -345,14 +346,77 @@ html{scroll-behavior: smooth;}
     height: 500px;
     border: solid gray 1px;
     position: relative;
+    margin: 5px;
     overflow: hidden;
 }
 
-h1, h2{
+h1, h2, h3{
     text-align: center;
     margin: 10px;
+    padding: 10px;
 }
 
 .img1{
     filter: invert(100%);
+    margin: 0px;
+}
+
+.text1{
+    background-color: rgba(240, 245, 231, 0.822);
+    position: absolute;
+    bottom: 0;   
+    font-size: 1em;
+    padding: 2px;
+    width: 100%;
+    text-align: center;
+    border: solid white 5px;
+    margin-bottom: 20%; 
+    overflow: hidden;
+}
+
+.img2{
+    filter: blur(2px);
+}
+
+.text2{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    padding: 2px;
+    text-align: center;
+    color: aqua;
+    background-color: rgba(96, 97, 78, 0.747)
+}
+
+.img3{
+    background-image: linear-gradient(rgba(45, 148, 91, 0.562));
+    position: relative;
+}
+
+.img-title-text3{
+    position: absolute;
+    text-align: center;
+    color: whitesmoke;
+    font-weight: bold;
+    z-index: 40;
+    padding: 5px;
+    top: 40%;
+    left: 30%;
+}
+
+.text3{
+    position: absolute;
+    bottom: 40px;
+    text-align: right;
+    color: aquamarine;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.text4{
+    position: absolute;
+    top: 10px;
+    color: bisque;
+    padding: 10px;
+    font-family: cursive;
 }
