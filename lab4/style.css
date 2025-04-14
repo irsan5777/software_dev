@@ -1,7 +1,7 @@
 .shadow1{text-shadow: 10px 0px 3px red;}
 .shadow2{text-shadow: -10px 0px 2px red;}
 .shadow3{text-shadow: 0px 10px 2px red;}
-.shadow4{text-shadow: 0px -10px 2px red;}
+.shadow4{text-shadow: 0px -10px 2px rgb(25, 84, 62);}
 .shadow5{text-shadow: -10px -5px 4px red;}
 .shadow6{text-shadow: -2px 2px 4px red;}
 
@@ -109,7 +109,8 @@ figcaption{margin-bottom: 50px;}
 
 .card:hover{
     box-shadow: 0px 0px 5px 1px grey;
-    border: crimson solid 2px;
+    border: crimson solid 5px;
+    cursor:p;
 }
 
 .card:hover .linkcard{
@@ -183,8 +184,8 @@ html{scroll-behavior: smooth;}
 
 .navbarhorizontal{
     background-color: orangered;
-
 }
+
 .navbarhorizontal a{
     color: whitesmoke;
     text-decoration: none;

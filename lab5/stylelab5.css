@@ -180,4 +180,99 @@ border: solid black 1px;
     .navbars{display: none;}
 }
 
+/**/
+/* LAB 5 EXERCISE */
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(226, 218, 140);
+    color: #831b1b;
+}
+.header-image{
+    display: block;
+    width: 60%;
+    margin: auto;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+header{
+    background-color: #60a1d6;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(128, 37, 37, 0.547);
+}
+
+.navbarhorizontal{
+    background-color: rgb(113, 93, 16);
+}
+.navbarhorizontal a{
+    color: whitesmoke;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    width: 24.5% ;
+    padding: 20px;
+}
+
+.navbarhorizontal a:hover{
+    background-color: rgb(25, 186, 49);
+    font-weight: bolder;
+    text-decoration: underline;
+    font-size: 30px;
+}
+
+.header-title{
+    padding: 10px;
+    font-size: 1.5em;
+    color: #8d1ea8;
+}
+
+@media(max-width:768px){
+.header{
+    flex-direction: row;
+    text-align: center;
+}
+.header-title{
+    text-align: center;
+    font-size: 2em;
+}
+}
+
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px;
+    justify-content: center;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.card{
+    background-color: #dbcbcb;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.card:hover{
+    box-shadow: 0px 0px 8px 6px rgb(4, 197, 107);
+    border: crimson solid 8px;
+    text-decoration: underline;
+    font-weight: bold;
+    box-shadow: #bec5c0 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1em;
+    color: #a4aca7;
+    background-color: rgba(161, 117, 142, 0.808);
+}
+
+.card p{
+    color: #67406a;
+    font-weight: bold;
+    font-size: 1em;
+}
 
