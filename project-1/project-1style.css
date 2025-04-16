@@ -1,0 +1,36 @@
+:root{
+    --primarycolor:rgb(71, 91, 205);
+    --primarylightcolor:rgb(146, 194, 125);
+    --secondarycolor: rgb(103, 153, 220)
+}
+
+.titlebg{
+    background-color: var(--primarylightcolor) !important;
+}
+.header-logo{
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.navbar-container{
+    background-color: rgba(75, 102, 165, 0.817);
+}
+
+.nav-item a:hover{
+    color: rgb(131, 224, 38);
+    font-weight: bolder;
+    font-size: 20px;
+    text-decoration: underline;
+    padding: 10px;
+}
+
+.map-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

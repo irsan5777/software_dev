@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lab 7: Bootstrap components</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <h1>Navigation tabs.</h1>
+    <h2>Dropdown menu</h2>
+    <section class="dropdown dropend">
+        <button type="button" class="dropdown-toggle btn btn-secondary" data-bs-toggle="dropdown">CUNY Community Colleges NYC</button>
+        <ul class="dropdown-menu">
+            <li><a p class="dropdown-header bg-secondary text-light">Queens</a></li>
+            <li><hr></li>
+            <li><a href="" class="dropdown-item">Queensborough CC</a></li>
+            <li><a href="" class="dropdown-item">LaGuardia CC</a></li>
+            <li><a href="" class="dropdown-item">Bronx CC</a></li>
+        </ul>
+    </section>
+
+    <section class="btn-group mt-5">
+        <button class="btn btn-danger">Home</button>
+        <button class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown">CUNY Community College</button>
+        <button class="btn btn-danger">Bootstrap</button>
+    
+        <!--dropdown menu-->
+
+        <ul class="dropdown-menu">
+            <li><a p class="dropdown-header bg-secondary text-light">Queens</a></li>
+            <li><hr></li>
+            <li><a href="" class="dropdown-item">Queensborough CC</a></li>
+            <li><a href="" class="dropdown-item">LaGuardia CC</a></li>
+            <li><a href="" class="dropdown-item">Bronx CC</a></li>
+        </ul>
+    </section>
+
+    <h1>grid system</h1>
+    <section class="container mt-5">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-3 bg-warning border border-dark" style="height: 50px;">Box 1</div>
+            <div class="col-sm-6 col-md-4 col-lg-2 bg-warning border border-dark" style="height: 50px;">Box 2</div>
+            <div class="col-sm-12 col-md-4 col-lg-5 bg-warning border border-dark" style="height: 50px;">Box 3</div>
+            <div class="col-sm-7 col-md-9 col-lg-2 bg-warning border border-dark" style="height: 50px;">Box 4</div>
+            <div class="col-sm-2 col-md-2 col-lg-9 bg-warning border border-dark" style="height: 50px;">Box 5</div>
+        </div>
+    </section>
+    
+    <h1>cards</h1>
+            <!-- card 1-->
+
+    <main class="container mt-5">
+        <section class="row justify-content-center">
+            <div class="card col-lg-3 col-md-5 m-3">
+                <div class="card-body">
+                    <img src="images/img1.jpg" class="card-img">
+                    <h2 class="card-title text-danger">Cherry Blossom tree</h2>
+                    <p class="card-subtitle text-secondary">Brooklyn Botanical Garden spring season</p>
+                    <p class="card-text">Now is happening at BBG the new spring 2025 season </p>
+                    <a href="" class="card-link">Visit BBG</a>
+                </div>
+            </div>
+            
+            <!-- card 2-->
+
+            <div class="card col-lg-3 m-3 col-md-5 bg-dark">
+                <header class="card-header">
+                    <h2 class="card-title text-danger">Cherry Blossom tree</h2>
+                    <p class="card-subtitle text-light">Brooklyn Botanical Garden spring season is happening now 2025</p>    
+                </header>
+                <main class="card-body">
+                    <img src="images/img1.jpg" class="card-img">
+                    <p class="card-text text-light">Now is happening at BBG the new spring 2025 season </p>
+                </main>
+                <footer class="card-footer bg-danger">
+                    <a href="" class="card-link text-light">Visit BBG</a>
+                </footer>
+            </div>
+
+            <!-- card 3 -->
+
+             <div class="card col-lg-3 col-md-5 m-3">
+                <img src="images/img1.jpg" class="card-img">
+                <main class="card-body">
+                    <h2 class="card-title text-danger">Cherry Blossom tree</h2>
+                    <p class="card-subtitle text-secondary">Brooklyn Botanical Garden spring season is happening now 2025</p> 
+                    <p class="card-text text-secondary">Now is happening at BBG the new spring 2025 season </p>
+                </main>
+                <footer class="card-footer">
+                    <a href="" class="card-link text-secondary">Visit BBG</a>
+                </footer>
+            </div>
+
+                <!-- card 4 -->
+
+             <div class="card col-lg-3 col-md-5 m-3">
+                <img src="images/img1.jpg" class="card-img">
+                <main class="card-body">
+                    <h2 class="card-title text-danger">Cherry Blossom tree</h2>
+                    <p class="card-subtitle text-secondary">Brooklyn Botanical Garden spring season is happening now 2025</p> 
+                    <p class="card-text text-secondary">Now is happening at BBG the new spring 2025 season </p>
+                </main>
+                <footer class="card-footer">
+                    <a href="" class="card-link text-secondary">Visit BBG</a>
+                </footer>
+             </div>
+        </section>
+    </main>
+
+    <h1 class="mt-5">Carousel of text</h1>
+    <section class="carousel" data-bs-ride="carousel">
+        <div class="carousel-inner bg-warning text-center p-2 display-5">
+            <div class="carousel-item active">Toys Flash Sale <span class="display-3 text-danger fw-bold">40%</span> Off</div>
+            <div class="carousel-item"><span class="display-3 text-danger fw-bold">Free</span> Shipping</div>
+            <div class="carousel-item"><span class="display-3 text-danger fw-bold">New</span> Summer collections</div>
+            <div class="carousel-item"><span class="display-3 text-danger fw-bold">Limited time</span> Hurry up before too late</div>
+        </div>
+    </section>
+ 
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+
+  </body>
+</html>
