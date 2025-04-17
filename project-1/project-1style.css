@@ -1,11 +1,11 @@
 :root{
     --primarycolor:rgb(71, 91, 205);
-    --primarylightcolor:rgb(146, 194, 125);
+    --primarylightcolor:rgb(198, 224, 190);
     --secondarycolor: rgb(103, 153, 220)
 }
 
 .titlebg{
-    background-color: var(--primarylightcolor) !important;
+    background-color: var(--primarylightcolor);
 }
 .header-logo{
     background-position: center;
@@ -16,12 +16,8 @@
     margin-bottom: 20px;
 }
 
-.navbar-container{
-    background-color: rgba(75, 102, 165, 0.817);
-}
-
 .nav-item a:hover{
-    color: rgb(131, 224, 38);
+    color: rgb(185, 158, 34);
     font-weight: bolder;
     font-size: 20px;
     text-decoration: underline;
@@ -32,5 +28,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(142, 148, 104, 0.752);
+}
+.livestreaminginfo{
+    background-color: var(--primarylightcolor);
+}
+.message{
+    background-color: rgba(233, 224, 211, 0.816);
+}
+
+.buildingproject{
+    background-color: rgba(239, 198, 111, 0.708);
+}
+
+.img-vision{
+    filter: blur(6px);
+}
+.card-body:hover{
+    box-shadow: 0px 0px 8px 6px rgb(215, 179, 19);
+    border: cornflowerblue solid 6px;
+    border-radius: 30px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
