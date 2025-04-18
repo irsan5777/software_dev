@@ -1,0 +1,101 @@
+/* style.css */
+body {
+    font-family: sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+h1, h2, h3 {
+    color: #28a745; /* A nice green color */
+}
+
+.highlight {
+    font-weight: bold;
+    color: #007bff; /* Bootstrap primary color */
+}
+
+p {
+    line-height: 1.6;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+ol {
+    list-style-type: decimal;
+    margin-left: 20px;
+}
+
+hr {
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.nav-link:hover {
+    color: #28a745 !important;
+}
+
+/* 2D Animation */
+.navbar-brand {
+    display: inline-block;
+    animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+/* Image Styling */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.rounded {
+    border-radius: 8px;
+}
+
+/* Responsive Design */
+/* Mobile View (default) - Adjust font size for readability */
+body {
+    font-size: 16px;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+/* Tablet View (min-width: 768px) */
+@media (min-width: 768px) {
+    body {
+        font-size: 18px;
+    }
+    h2 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Desktop View (min-width: 992px) */
+@media (min-width: 992px) {
+    .container {
+        max-width: 1200px;
+    }
+    h2 {
+        font-size: 3rem;
+    }
+}
+
