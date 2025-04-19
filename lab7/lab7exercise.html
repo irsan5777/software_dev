@@ -4,46 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Accordion Example</title>
+    <title>Bootstrap Accordion</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container mt-4">
-        <h1>Bootstrap Accordion</h1>
-        <div class="accordion" id="myAccordion">
+    
+    <div class="container py-5">
+        <div class="accordion custom-accordion" id="modernAccordion">
+            <!-- Accordion Item 1 -->
             <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
+                <h2 class="accordion-header">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Accordion Item #1
-                    </button>
+                            What is Bootstrap 5.3?
+                        </button>
                 </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#myAccordion">
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#modernAccordion">
                     <div class="accordion-body">
-                        This is the first accordion panel's content. It is shown by default, as the <code>.show</code> class is added. You can place any content you like within this <code>.accordion-body</code>, including text, images, lists, and more.
+                        Bootstrap 5.3 is the latest version of the popular front-end framework, offering enhanced features,
+                        improved performance, and modern design capabilities for web development.
                     </div>
                 </div>
             </div>
+    
+            <!-- Accordion Item 2 -->
             <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
+                <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Accordion Item #2
-                    </button>
+                            What are the key features?
+                        </button>
                 </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#myAccordion">
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#modernAccordion">
                     <div class="accordion-body">
-                        This is the second accordion panel's content. Notice the <code>.collapsed</code> class on the button and the absence of the <code>.show</code> class on the <code>.accordion-collapse</code>. This means it will be initially hidden. Click the header to toggle it.
+                        Key features include responsive grid system, updated components, custom properties, enhanced
+                        utilities, and improved JavaScript plugins for creating modern web interfaces.
                     </div>
                 </div>
             </div>
+    
+            <!-- Accordion Item 3 -->
             <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
+                <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Accordion Item #3
-                    </button>
+                            How to customize styles?
+                        </button>
                 </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#myAccordion">
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#modernAccordion">
                     <div class="accordion-body">
-                        And here's the third accordion panel! Just like the second one, it starts collapsed. You can add as many accordion items as you need to organize your content effectively. Remember to keep the <code>data-bs-parent</code> attribute consistent with the main <code>.accordion</code> container's ID.
+                        You can customize Bootstrap styles using CSS variables, custom classes, and the built-in Sass
+                        variables system to create unique and branded designs.
                     </div>
                 </div>
             </div>
