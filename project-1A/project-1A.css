@@ -1,4 +1,5 @@
 /* style.css */
+
 body {
     font-family: sans-serif;
     color: #333;
@@ -71,6 +72,7 @@ img {
 
 /* Responsive Design */
 /* Mobile View (default) - Adjust font size for readability */
+
 body {
     font-size: 16px;
 }
