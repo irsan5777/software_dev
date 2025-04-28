@@ -118,14 +118,13 @@ else:
 
 
 print(f"\n------ LAB EXERCISE -------")
-colors = ['red', 'magenta', 'yellow', 'blue', 'purple', 'green', 'olive']
+colors = ['red', 'orange', 'olive', 'magenta', 'green']
 found = False
 
-user_color = input("Enter your color :")
+user_color = input("Enter your color : ").strip().lower()
 for color in colors:
     if color == user_color:
         found=True
-        break
     if found:
         print(f"{user_color} is in the list")
     else:
