@@ -4,8 +4,7 @@ Apr 27, 2025, Python applications
 """
 # import 'math' module
 import math
-
-# import all from file "lab11_functions"
+# import all from file "lab11_function"
 from lab11_function import *
 
 print("\n---- Example 1: Python dictionary ------")
@@ -98,6 +97,57 @@ print("\n---- Example 9: built-in function -----")
 r = 2
 a = areacircle(r)
 areaprint(a,r)
+
+print("\n---- Example 10: try-except -----")
+r1 = ratio_hour(0)
+r2 = ratio_hour(3)
+r3 = ratio_hour("peterpan")
+
+print("\n---- Example 11: classes -----")
+# create an instant of the class
+user1 = Myclass()
+print(f"An instance of the class = {user1}")
+# call the class' property
+user1_id = user1.id
+print(f"user1 id = {user1_id}")
+# call the class' method
+user1msg = user1.msg()
+print(f"user 1 message = {user1msg}")
+
+print("\n---- Example 12: instantiation classes -----")
+# create an instant of the class
+paircomplexnumber = Complexnumber(2,3)
+# call the instance object 'r' of the class
+real = paircomplexnumber.r
+print(f"The real part is {real}")
+
+print("\n---- Example 13: classes and application -----")
+# create an instant of the class
+car1 = Car("Tesla", "S", 2023)
+# call property 'odometer_reading'
+car_reading = car1.odometer_reading
+print(f"Car miles reading = {car_reading}")
+# call method 'get_car_description'
+print(car1.get_car_description())
+#call method 'read_odometer'
+print(car1.read_odometer())
+# update the odometer to mileage = 10
+car1.update_odometer(10)
+print(car1.read_odometer())
+car1.update_odometer(5)
+print(car1.read_odometer())
+
+# add 20 miles to odometer
+car1.increment_odometer(20)
+print(car1.read_odometer())
+car1.increment_odometer(-5)
+print(car1.read_odometer())
+car1.increment_odometer(8)
+print(car1.read_odometer())
+
+
+
+
 
 
 
