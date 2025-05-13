@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask app</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <h1 class="title">Welcome to Flask!! made by Irsan Sutanto {{username}}</h1>
+    <figure class="introimgcontainer">
+        <img src="../static/nyc.jpg" alt="nyc" class="introimg">
+    </figure> 
+    <section class="maincontainer">
+        <ul>
+        {% for eachfruit in listfruits %}
+            <li>{{eachfruit}}</li>
+        {%  endfor %}
+        </ul>
+
+        {%if checkfruit in listfruits %}
+            <p>Great!! We have {{checkfruit}} today in house</p>
+        {% else %}
+            <p>Sorry! No {{checkfruit}} in the list</p>
+        {% endif%}
+    </section>  
+    <h2>HTTP Request</h2>
+    <form method="POST">
+        <input type="password" name="password"/>
+        <input type="submit"/>
+    </form>
+    <h2><a href="{{url_for("users")}}> Add new employee </a></h2>
+    <p>New employee is {{session['employee1']}}</p>
+</body>
+</html>
