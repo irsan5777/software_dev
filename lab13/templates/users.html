@@ -6,20 +6,18 @@
 {% with messages = get_flashed_messages()%}
     {%if messages %}
     <ul class="infomessage">
-       {%for m in mesagges%}
-            <li>{{m}}</li>
+        {%for msg in messages%}
+        <ul>{{msg}}</ul>
+        {%endfor%}
     </ul>   
     {%endif%}
-{% endwith%}
-
-    <h2>User in the list</h2>
+{%endwith%}
+<h2>User in the list</h2>
     <form method="POST">
         <label for="name">Enter employee name: </label>
         <input type="text" name="employee_name" id="name"/>
-
         <label for="userid">Enter employee id: </label>
-        <input type="text" name="employee_id"/>
-
+        <input type="text" name="employee_id" id="userid"/>
         <button type="submit">ADD NEW EMPLOYEE</button>
     </form>
 
