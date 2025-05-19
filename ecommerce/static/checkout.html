@@ -1,0 +1,155 @@
+
+{% extends "base.html" %} {# Inherit from base.html #}
+
+{% block title %}Checkout{% endblock %} {# Set the page title #}
+
+{% block content %} {# Start the content block #}
+
+    <h1 class="text-center mb-4">Checkout</h1>
+
+    <div id="checkout-container">
+        {# Content will be rendered by JavaScript #}
+    </div>
+
+    <div id="empty-checkout-message" class="alert alert-warning text-center rounded" role="alert" style="display: none;"> {# Initially hidden #}
+        Your cart is empty. Please add items before checking out.
+    </div>
+    <div id="continue-shopping-button-checkout" class="text-center" style="display: none;"> {# Initially hidden #}
+        <a href="{{ url_for('index') }}" class="btn btn-primary rounded">Continue Shopping</a>
+    </div>
+
+{% endblock %} {# End the content block #}
+
+{% block scripts_extra %} {# Add extra scripts here #}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const checkoutContainer = document.getElementById('checkout-container');
+        const emptyCheckoutMessage = document.getElementById('empty-checkout-message');
+        const continueShoppingButton = document.getElementById('continue-shopping-button-checkout');
+
+        const taxRate = parseFloat("{{ (tax_rate * 100) | round(2) }}") / 100; // Get tax rate from template
+        const shippingCost = parseFloat("{{ shipping_cost | float }}"); // Get shipping cost from template
+
+        // Function to render checkout details from local storage cart
+        function renderCheckout() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || {};
+            checkoutContainer.innerHTML = ''; // Clear current display
+
+            if (Object.keys(cart).length === 0) {
+                // Cart is empty
+                emptyCheckoutMessage.style.display = 'block';
+                continueShoppingButton.style.display = 'block';
+            } else {
+                // Cart has items
+                emptyCheckoutMessage.style.display = 'none';
+                continueShoppingButton.style.display = 'none';
+
+                let subtotal = 0;
+                let cartItemCount = 0;
+                const orderSummaryItemsHtml = Object.keys(cart).map(productId => {
+                    const item = cart[productId];
+                    const itemTotal = item.price * item.quantity;
+                    subtotal += itemTotal;
+                    cartItemCount += item.quantity;
+                    return `
+                        <li class="list-group-item d-flex justify-content-between lh-sm rounded">
+                            <div>
+                                <h6 class="my-0">${item.name}</h6>
+                                <small class="text-muted">Quantity: ${item.quantity}</small>
+                            </div>
+                            <span class="text-muted">$${itemTotal.toFixed(2)}</span>
+                        </li>
+                    `;
+                }).join(''); // Join array elements into a single string
+
+                const tax = subtotal * taxRate;
+                const total = subtotal + tax + shippingCost;
+
+                const checkoutHtml = `
+                    <div class="row g-5">
+                        <div class="col-md-7 col-lg-8">
+                            <h4 class="mb-3">Order Summary</h4>
+                            <ul class="list-group mb-3">
+                                ${orderSummaryItemsHtml}
+                                <li class="list-group-item d-flex justify-content-between bg-light rounded-bottom">
+                                    <div class="text-success">
+                                        <h6 class="my-0">Subtotal</h6>
+                                    </div>
+                                    <span class="text-success">$${subtotal.toFixed(2)}</span>
+                                </li>
+                                 <li class="list-group-item d-flex justify-content-between bg-light">
+                                    <div class="text-success">
+                                        <h6 class="my-0">Tax (${(taxRate * 100).toFixed(2)}%)</h6>
+                                    </div>
+                                    <span class="text-success">$${tax.toFixed(2)}</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between bg-light">
+                                    <div class="text-success">
+                                        <h6 class="my-0">Shipping & Handling</h6>
+                                    </div>
+                                    <span class="text-success">$${shippingCost.toFixed(2)}</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between rounded-bottom">
+                                    <span><strong>Total (USD)</strong></span>
+                                    <strong>$${total.toFixed(2)}</strong>
+                                </li>
+                            </ul>
+
+                            {# Simulate Payment and Shipping Info Provided #}
+                            <div class="card mb-3 rounded">
+                                <div class="card-header">
+                                    Payment & Shipping Information (Simulated)
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">Payment Method: Visa **** **** **** 1234</p>
+                                    <p class="card-text">Shipping Address: {{ user_address }}</p> {# Display user's address from Flask #}
+                                    <p class="card-text mb-0">Estimated Delivery: 3-5 business days</p>
+                                </div>
+                            </div>
+
+                            <hr class="my-4">
+
+                            <form action="{{ url_for('checkout') }}" method="POST" id="checkout-form">
+                                {# Hidden input to send cart data to the server #}
+                                <input type="hidden" name="cart_data" id="cart-data-input">
+                                <button class="w-100 btn btn-primary btn-lg rounded" type="submit">Submit Order</button>
+                            </form>
+
+                        </div>
+
+                        <div class="col-md-5 col-lg-4 order-md-last">
+                             <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="text-primary">Your Cart</span>
+                                <span class="badge bg-primary rounded-pill">${cartItemCount}</span> {# Display total number of items #}
+                            </h4>
+                             <ul class="list-group mb-3">
+                                {# Cart items are displayed again here for the sidebar summary #}
+                                ${orderSummaryItemsHtml}
+                             </ul>
+                        </div>
+                    </div>
+                `;
+                checkoutContainer.innerHTML = checkoutHtml;
+
+                // Set the value of the hidden input field before form submission
+                const checkoutForm = document.getElementById('checkout-form');
+                checkoutForm.addEventListener('submit', function(event) {
+                    const cartDataInput = document.getElementById('cart-data-input');
+                    cartDataInput.value = localStorage.getItem('cart') || '{}'; // Put cart JSON string into hidden input
+                });
+
+                 // Clear the cart from local storage after successful order completion redirect
+                 // This assumes the redirect to order_complete means the order was successful.
+                 // A more robust approach might involve a server-side confirmation before clearing.
+                 // However, for this project's scope, clearing on checkout POST success redirect is acceptable.
+                 // The actual clearing happens in the POST handler in app.py before redirecting.
+                 // This client-side script is primarily for rendering the GET view.
+
+            }
+        }
+
+        // Initial render of the checkout page
+        renderCheckout();
+    });
+</script>
+{% endblock %}

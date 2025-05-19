@@ -1,0 +1,103 @@
+{% extends "base.html" %} {# Inherit from base.html #}
+
+{% block title %}Products - {{ category_nameFlorence }}{% endblock %} {# Set the page title #}
+
+{% block content %} {# Start the content block #}
+
+    <h1 class="text-center mb-4">{{ category_name }}</h1>
+
+    <div class="row">
+        {% if products %}
+            {% for product in products %}
+                <div class="col-sm-6 col-md-4 mb-4"> {# Added col-sm-6 for better responsiveness #}
+                    <div class="card h-100 rounded"> {# h-100 makes cards the same height #}
+                        <img src="{{ product.image }}" class="card-img-top rounded-top" alt="{{ product.name }}" onerror="this.onerror=null;this.src='https://placehold.co/400x300/cccccc/000000?text=Image+Not+Found';" style="height: 200px; object-fit: cover;"> {# Placeholder image on error #}
+                        <div class="card-body d-flex flex-column"> {# Use flexbox for layout #}
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text"><strong>${{ "%.2f" | format(product.price) }}</strong></p> {# Format price to 2 decimal places #}
+
+                            <div class="mt-auto"> {# Push quantity and button to the bottom #}
+                                <div class="mb-2">
+                                    <label for="quantity-{{ product.id }}" class="form-label">Quantity:</label>
+                                    <input type="number" class="form-control form-control-sm rounded quantity-input" id="quantity-{{ product.id }}" value="1" min="1" data-product-id="{{ product.id }}"> {# Added data-product-id #}
+                                </div>
+                                <button class="btn btn-primary btn-sm w-100 rounded add-to-cart-btn" data-product-id="{{ product.id }}"
+                                        data-product-name="{{ product.name }}"
+                                        data-product-price="{{ product.price }}"
+                                        data-product-image="{{ product.image }}">Add to Cart</button> {# Added data attributes for product info #}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12">
+                <p class="text-center">No products found in this category.</p>
+            </div>
+        {% endif %}
+    </div>
+
+{% endblock %} {# End the content block #}
+
+{% block scripts_extra %} {# Add extra scripts here for future JS #}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const productId = this.dataset.productId;
+                const productName = this.dataset.productName;
+                const productPrice = parseFloat(this.dataset.productPrice); // Parse price as float
+                const productImage = this.dataset.productImage;
+                const quantityInput = document.querySelector(`.quantity-input[data-product-id="${productId}"]`); // Select quantity input by product ID
+                const quantity = quantityInput ? parseInt(quantityInput.value) : 1;
+
+                // Get existing cart from local storage or initialize an empty object
+                let cart = JSON.parse(localStorage.getItem('cart')) || {};
+
+                // Use product ID as the key
+                const productIdStr = String(productId); // Ensure key is a string for consistency
+
+                if (cart[productIdStr]) {
+                    // Item already in cart, update quantity
+                    cart[productIdStr].quantity += quantity;
+                } else {
+                    // Item not in cart, add it
+                    cart[productIdStr] = {
+                        name: productName,
+                        price: productPrice,
+                        image: productImage,
+                        quantity: quantity
+                    };
+                }
+
+                // Save the updated cart back to local storage
+                localStorage.setItem('cart', JSON.stringify(cart));
+
+                // Provide user feedback (using alert for now)
+                alert(`${quantity} x ${productName} added to cart!`);
+
+                // TODO: Update a mini-cart display or cart count in the navbar
+                 updateCartCountDisplay(); // Call function to update cart count
+            });
+        });
+
+        // Function to update a cart count element (you'll need an element with id="cart-count" in base.html)
+        function updateCartCountDisplay() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || {};
+            let totalItems = 0;
+            for (const productId in cart) {
+                totalItems += cart[productId].quantity;
+            }
+            const cartCountElement = document.getElementById('cart-count');
+            if (cartCountElement) {
+                cartCountElement.textContent = totalItems;
+            }
+        }
+
+         // Initial update of cart count when the page loads
+        updateCartCountDisplay();
+    });
+</script>
+{% endblock %}

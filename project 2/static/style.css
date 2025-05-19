@@ -23,10 +23,10 @@ img{
 @import url('https://fonts.googleapis.com/css2?family=Norican&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap');
-html,
+
 body {
 	font-size: 14px;
-	color: rgb(189, 126, 126);
+	color: rgb(11, 25, 36);
 	background: #dab57d;
 	font-family: Poppins, sans-serif;
 }
@@ -43,14 +43,14 @@ a {
 	background: #5987ad93
 }
 .bg-color {
-	background: #1279b9;
+	background: #5299c6;
 }
 .main-section {
 	padding-top: 120px;
 	padding-bottom: 120px;
 }
 
-/******* NAVBAR SECTION NAVBAR SECTION*******/
+/******* NAVBAR SECTION*******/
 
 .navbar-brand img {
 	width: auto;
@@ -64,13 +64,13 @@ a {
 	margin-top: 10px;
 }
 .navbar-nav .nav-item {
-	margin-right: 15px;
+	margin-right: 20px;
 }
 
 .navbar-nav .nav-link {
 	font-weight: 500;
 	color: white;
-	font-size: 16px;
+	font-size: 20px;
 }
 .navbar-expand-lg .navbar-nav .nav-link {
 	margin-left: 32px;
@@ -83,12 +83,12 @@ a {
 	justify-content: left;
 }
 .fixed-top {
-	background: #ebbfc3d8;
+	background: #c4878dd8;
 }
 nav .social-media a {
-	color: #fff;
+	color: #4f8bab;
 	font-size: 25px;
-	top: 15px;
+	top: 30px;
 	position: relative;
 	margin-right: 30px;
 	float: right;
@@ -120,55 +120,30 @@ nav .social-media a {
 /******** BANNER SECTION *******/
 
 .banner-section {
-	margin-top: 80px;
-	padding-bottom: 80px;
+	padding-bottom: 60px;
 }
 .banner-detail {
-	margin-top: 15%;
+	margin-top: 20%;
 }
 .banner-detail h5 {
 	font-size: 70px;
 	margin-bottom: 15px;
 	color: #ffda86;
-	font-weight: 400;
 	font-family: Norican, sans-serif;
 	/* text-shadow: 0 0 2px black; */
 }
 .banner-detail h1 {
-	margin-bottom: 30px;
+	margin-bottom: 100px;
 	font-family: Poppins, sans-serif;
 	font-size: 180px;
 	color: white;
 	font-weight: bolder;
-	line-height: 170px;
-}
-.banner-detail .button-1 {
-	padding: 11px 35px;
-	font-size: 16px;
-    background: rgb(165, 91, 91);
-	border: none;
-	border-radius: 50px;
-	margin-top: 15px;
-	color: black;
-	font-family:'Raleway', sans-serif;
-	font-weight: 500
+	line-height: 150px;
 }
 
-.banner-detail .button-2 {
-	padding: 11px 35px;
-	font-size: 16px;
-	border-radius: 50px;
-	margin-top: 15px;
-	color: black;
-	background-color: #ffda86;
-	border: 1px solid #ffda86;
-	margin-left: 10px;
-	font-family:'Raleway', sans-serif;
-	font-weight: 500
-}
 .banner-img img {
-	margin-top: 30px;
-	width: 100%;
+	margin-top: 160px;
+	width: 85%;
 	height: auto;
 	float: right;
 }
@@ -214,36 +189,6 @@ nav .social-media a {
 	}
 }
 
-/******ADV*****/
-
-.top-banner {
-	border: 1px solid #00000024;
-	padding: 30px 5px 30px 20px;
-	background: #fff;
-	margin-bottom: 20px;
-	border-radius: 5px;
-}
-.top-banner img {
-	width: 100%;
-	margin-top: 10px;
-}
-.top-banner h2 {
-	font-size: 18px;
-	color: red;
-	font-family Norican, sans-serif;
-}
-.top-banner h3 {
-	font-size: 30px;
-	font-weight: 600;
-	line-height: 30px;
-	color: #484848;
-}
-.top-banner p {
-	margin: 0px;
-	font-size: 15px;
-	color: black;
-}
-
 /*******START PRODUCT********/
 
 .product {
@@ -253,7 +198,7 @@ nav .social-media a {
 	margin:100px 0px;
 }
 .pro {
-	border: 1px solid lightgrey;
+	border: 1px solid rgb(97, 161, 60);
 	padding: 0px 0px 30px 0px;
 	text-align: center;
 	margin-bottom:20px;
@@ -278,12 +223,11 @@ nav .social-media a {
     border-radius: 100px;
     margin-top: 20px;
 }
-
 /**********END PRODUCT********/
 
 /*****FOOTER*****/
 .footer-section {
-	background-image: linear-gradient(to bottom, rgba(62, 49, 49, 0.16) 0%, rgba(0, 0, 0, 0.7) 100%), url(../image/footer.jpg);
+	background-image: linear-gradient(to bottom, rgba(62, 49, 49, 0.16) 0%, rgba(32, 27, 27, 0.7) 100%), url(../image/footer.jpg);
 	background-repeat: no-repeat;
 	padding: 100px 0px 0px 0px;
 	font-family: 'Raleway';
@@ -317,7 +261,7 @@ nav .social-media a {
 }
 .footer-menu li a {
 	text-decoration: none;
-	border-right: 1px solid lightgrey;
+	border-right: 1px solid rgb(160, 59, 59);
 	padding: 2px 20px;
 	color: #111;
 }
@@ -355,7 +299,7 @@ nav .social-media a {
 	float: left;
 }
 .copyright ul li a {
-	border-right: 1px solid lightgrey;
+	border-right: 1px solid rgb(147, 137, 137);
 	padding: 0px 10px;
 	text-decoration: none;
 	color: #fff;

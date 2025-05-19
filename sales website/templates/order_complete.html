@@ -1,0 +1,22 @@
+
+{% extends "base.html" %} {# Inherit from base.html #}
+
+{% block title %}Order Complete{% endblock %} {# Set the page title #}
+
+{% block content %} {# Start the content block #}
+
+    <div class="text-center my-5">
+        <h1 class="display-4 text-success">Order Placed Successfully!</h1>
+        <p class="lead">Thank you for your order.</p>
+        {% if order_id %}
+             <p class="lead">Your Order Number is: <strong>{{ order_id }}</strong></p> {# Display the order ID #}
+        {% endif %}
+
+        <hr class="my-4">
+
+        <p>We've sent a confirmation email with your order details.</p>
+        <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg rounded">Continue Shopping</a>
+    </div>
+
+{% endblock %} {# End the content block #}
+

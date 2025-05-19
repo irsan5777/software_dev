@@ -1,0 +1,115 @@
+
+{% extends "base.html" %} {# Inherit from base.html #}
+
+{% block title %}Shopping Cart{% endblock %} {# Set the page title #}
+
+{% block content %} {# Start the content block #}
+
+    <h1 class="text-center mb-4">Your Shopping Cart</h1>
+
+    {% if cart_items %}
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-group mb-3">
+                    {% for product_id, item in cart_items.items() %}
+                        <li class="list-group-item d-flex justify-content-between lh-sm rounded"> {# Use flexbox to align items #}
+                            <div class="d-flex align-items-center"> {# Align image and text vertically #}
+                                <img src="{{ item.image }}" alt="{{ item.name }}" class="img-thumbnail me-3 rounded" style="width: 80px; height: 80px; object-fit: cover;"> {# Product image #}
+                                <div>
+                                    <h6 class="my-0">{{ item.name }}</h6> {# Product name #}
+                                    <small class="text-muted">Quantity: {{ item.quantity }}</small> {# Quantity #}
+                                    <p class="text-muted mb-0">${{ "%.2f" | format(item.price) }} each</p> {# Price per item #}
+                                </div>
+                            </div>
+                            <span class="text-muted">${{ "%.2f" | format(item.price * item.quantity) }}</span> {# Total price for this item #}
+                            <button type="button" class="btn btn-danger btn-sm ms-3 rounded remove-item-btn" data-product-id="{{ product_id }}">Remove</button> {# Remove button #}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card rounded">
+                    <div class="card-header">
+                        Order Summary
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between rounded-top">
+                            <span>Subtotal</span>
+                            <strong>${{ "%.2f" | format(subtotal) }}</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Tax ({{ (tax_rate * 100) | round(2) }}%)</span> {# Display tax rate #}
+                            <span>${{ "%.2f" | format(tax) }}</span>
+                        </li>
+                         <li class="list-group-item d-flex justify-content-between">
+                            <span>Shipping & Handling</span>
+                            <span>${{ "%.2f" | format(shipping_cost) }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between rounded-bottom">
+                            <span><strong>Total (USD)</strong></span>
+                            <strong>${{ "%.2f" | format(total) }}</strong>
+                        </li>
+                    </ul>
+                </div>
+
+                <hr class="my-4"> {# Horizontal rule #}
+
+                {% if 'user_id' in session %}
+                    {# If user is logged in, show checkout button #}
+                    <a href="{{ url_for('checkout') }}" class="btn btn-primary btn-lg w-100 rounded">Proceed to Checkout</a> {# TODO: Implement checkout route #}
+                {% else %}
+                    {# If user is not logged in, show signup/login buttons #}
+                    <p class="text-center mb-2">Ready to checkout?</p>
+                    <a href="{{ url_for('signup') }}" class="btn btn-success w-100 mb-2 rounded">Sign Up</a>
+                    <a href="{{ url_for('login') }}" class="btn btn-secondary w-100 rounded">Login</a>
+                {% endif %}
+            </div>
+        </div>
+    {% else %}
+        <div class="alert alert-info text-center rounded" role="alert">
+            Your cart is empty.
+        </div>
+        <div class="text-center">
+            <a href="{{ url_for('index') }}" class="btn btn-primary rounded">Continue Shopping</a>
+        </div>
+    {% endif %}
+
+{% endblock %} {# End the content block #}
+
+{% block scripts_extra %} {# Add extra scripts here #}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const removeButtons = document.querySelectorAll('.remove-item-btn');
+
+        removeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const productId = this.dataset.productId;
+
+                // Send data to Flask endpoint using Fetch API to remove item
+                fetch('{{ url_for("remove_from_cart") }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ product_id: productId })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Reload the page to update the cart display
+                        window.location.reload();
+                    } else {
+                        // Display an error message
+                        alert('Error removing item from cart: ' + data.message); // Using alert for now
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while removing the item from the cart.'); // Using alert for now
+                });
+            });
+        });
+    });
+</script>
+{% endblock %}
