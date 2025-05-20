@@ -8,7 +8,7 @@
     <style>
         /* Custom CSS for styling */
         body {
-            background-color: #f8f9fa; /* Light background */
+            background-color: #86abcdc8; /* Light background */
             font-family: 'Inter', sans-serif; /* Using Inter font */
         }
         .login-container {
@@ -46,7 +46,7 @@
 
     <div class="container">
         <div class="login-container">
-            <h2>Login to Your Account</h2>
+            <h2>Please login to Your Account</h2>
 
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
@@ -73,7 +73,7 @@
                 <button type="submit" class="btn btn-primary w-100">Login</button>
             </form>
             <p class="text-center mt-3">
-                Don't have an account? <a href="{{ url_for('signup') }}">Sign Up here</a>
+                Don't have an account? <a href="{{ url_for('signup') }}"> Sign Up here</a>
             </p>
         </div>
     </div>
